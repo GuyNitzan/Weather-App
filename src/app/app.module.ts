@@ -7,6 +7,8 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/weather/search/search.component';
 import { LocationWeatherComponent } from './components/weather/location-weather/location-weather.component';
+import { StoreModule } from '@ngrx/store';
+import {weatherReducer} from './store/weather.reducer';
 
 const routes: Routes = [
   { path: '', redirectTo: 'weather', pathMatch: 'full' },
@@ -26,6 +28,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    StoreModule.forRoot({weather: weatherReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
